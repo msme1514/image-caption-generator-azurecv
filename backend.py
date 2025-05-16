@@ -3,12 +3,17 @@ from fastapi.middleware.cors import CORSMiddleware
 import requests
 from dotenv import load_dotenv
 import os
+import streamlit as st
 
 load_dotenv()  # Load variables from .env
 
-AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT")
-AZURE_KEY = os.getenv("AZURE_KEY")
+## for local enviroment
+# AZURE_ENDPOINT = os.getenv("AZURE_ENDPOINT")
+# AZURE_KEY = os.getenv("AZURE_KEY")
 
+## for production enviroment
+AZURE_ENDPOINT = st.secrets["AZURE_ENDPOINT"]
+AZURE_KEY = st.secrets["AZURE_KEY"]
 app = FastAPI()
 
 app.add_middleware(
