@@ -36,11 +36,11 @@ source = None
 
 if uploaded_file:
     image_data = uploaded_file.read()
-    st.image(image_data, caption="Uploaded Image", use_column_width=True)
+    st.image(image_data, caption="Uploaded Image", use_container_width =True)
     source = "file"
 
 elif image_url:
-    st.image(image_url, caption="Image from URL", use_column_width=True)
+    st.image(image_url, caption="Image from URL", use_container_width =True)
     source = "url"
 
 if st.button("Generate Caption"):
